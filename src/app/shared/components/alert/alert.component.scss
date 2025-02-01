@@ -1,0 +1,121 @@
+:host {
+  display: inline-block;
+
+  .alert {
+    display: inline-flex;
+    width: inherit;
+    height: inherit;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.4rem 0.6rem;
+    box-sizing: border-box;
+
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-info-text);
+
+    background-color: var(--color-info-container);
+    border-radius: var(--mat-sys-corner-medium);
+
+    mat-icon {
+      width: 1em;
+      height: 1em;
+
+      font-size: 1.2rem;
+    }
+
+    &.info {
+      color: var(--color-info-text);
+      background-color: var(--color-info-container);
+    }
+
+    &.warning {
+      color: var(--color-warning-text);
+      background-color: var(--color-warning-container);
+    }
+
+    &.error {
+      color: var(--color-error-text);
+      background-color: var(--color-error-container);
+    }
+
+    &.horizontal {
+      flex-direction: row;
+      gap: 2px;
+
+      &.sm {
+        gap: 0.2rem;
+        padding: 0.4rem 0.6rem;
+
+        font-size: 0.8rem;
+  
+        mat-icon {
+          font-size: 1.2rem;
+        }
+      }
+  
+      &.md {
+        gap: 0.3rem;
+        padding: 0.5rem 0.6rem;
+  
+        font-size: 0.9rem;
+  
+        mat-icon {   
+          font-size: 1.6rem;
+        }
+      }
+  
+      &.lg {
+        gap: 0.4rem;
+        padding: 0.6rem 1rem;
+  
+        font-size: 1rem;
+  
+        mat-icon {   
+          font-size: 2.2rem;
+        }
+      }
+    }
+
+    &.vertical {
+      flex-direction: column;
+      justify-content: center;
+
+      &.sm {
+        gap: 0.3rem;
+        padding: 0.6rem;
+
+        font-size: 0.8rem;
+  
+        mat-icon {
+          font-size: 1.5rem;
+        }
+      }
+  
+      &.md {
+        gap: 0.4rem;
+        padding: 0.8rem;
+  
+        font-size: 0.9rem;
+  
+        mat-icon {   
+          font-size: 2rem;
+        }
+      }
+  
+      &.lg {
+        gap: 0.6rem;
+        padding: 1rem;
+  
+        font-size: 1rem;
+  
+        mat-icon {   
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
+
+}

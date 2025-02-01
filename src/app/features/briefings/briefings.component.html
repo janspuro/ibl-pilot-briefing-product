@@ -1,0 +1,16 @@
+<div class="content">
+  <h2>Pilot Briefing</h2>
+  <app-briefing-form (create)="onCreate($event)" [loading]="busy()"/>
+
+  @if (error()) {
+    <app-alert icon="error" color="error" size="lg" layout="vertical">
+      {{ error() }}
+    </app-alert>
+  } @else if (briefing() && !briefing()!.reports.length) {
+    <app-alert icon="warning" color="warning" size="lg" layout="vertical">
+      No results match your criteria
+    </app-alert>
+  } @else {
+    <app-briefing-result [briefing]="briefing()" />
+  }
+</div>

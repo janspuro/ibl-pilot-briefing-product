@@ -1,0 +1,14 @@
+<table class="briefing-result" cellspacing="0">
+  @for (station of stations(); track $index) {
+    <tr class="station">
+      <td colspan="3">{{ station.name }}</td>
+    </tr>
+    @for (report of station.reports; track $index) {
+      <tr>
+        <td class="type">{{ report.queryType }}</td>
+        <td class="time">{{ report.reportTime | date:timeFormat() }}</td>
+        <td class="text" [innerHtml]="report.textHTML"></td>
+      </tr>
+    }
+  }
+</table>

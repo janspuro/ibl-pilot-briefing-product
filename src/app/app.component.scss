@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center center;
+
+  main {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 3rem;
+  }
+  
+  @media screen and (max-width: 650px) {
+    main {
+      align-items: baseline;
+    }
+  }
+}

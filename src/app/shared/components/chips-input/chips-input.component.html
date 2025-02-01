@@ -1,0 +1,39 @@
+<mat-form-field>
+  @if (label()) {
+    <mat-label>{{ label() }}</mat-label>
+  }
+  
+  <mat-chip-grid #chips>
+    @for (item of value(); track $index) {
+      <mat-chip-row
+        (removed)="onRemove(item)"
+        [editable]="true"
+        (edited)="onEdit(item, $event)"
+      >
+        {{ item }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    }
+
+    <input
+      #input
+      name="query"
+      [(ngModel)]="query"
+      [matChipInputFor]="chips"
+      [matChipInputSeparatorKeyCodes]="separators"
+      [matChipInputAddOnBlur]="false"
+      (matChipInputTokenEnd)="onAdd($event)"
+      [matAutocomplete]="auto"
+      [disabled]="disabled()"
+      (blur)="onBlur()"
+    />
+
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelected($event)">
+      @for (item of autocomplete(); track $index) {
+        <mat-option [value]="item.value" [disabled]="item.disabled">{{ item.name }}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-chip-grid>
+</mat-form-field>

@@ -1,0 +1,65 @@
+<form class="briefing-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="content">
+
+    @if (form.touched && form.invalid) {
+      @if (types.hasError('required')) {
+        <app-alert icon="error" color="error" size="sm">
+          Please select at least one report type
+        </app-alert>
+      } @else if (form.hasError('airportOrCountryRequired')) {
+        <app-alert icon="error" color="error" size="sm">
+          Please specify at least one airport or country
+        </app-alert>
+      }
+    }
+
+    <div class="control inline">
+      <span class="label">Message Types:</span>
+      <mat-chip-listbox 
+        name="types"
+        formControlName="types"
+        multiple="true" 
+      >
+        @for (type of messageTypes(); track type) {
+          <mat-chip-option [value]="type">{{ type }}</mat-chip-option>
+        }
+      </mat-chip-listbox>
+    </div>
+
+    <div class="control">
+      <app-chips-input 
+        label="Airports" 
+        name="airports" 
+        formControlName="airports" 
+        maxLength="4" 
+        chipPattern="^[A-Z]{4}$"
+        [hints]="airtportsHints"
+      />
+    </div>
+
+    <div class="control">        
+      <app-chips-input 
+        label="Countries" 
+        name="countries" 
+        formControlName="countries"
+        chipPattern="^[A-Z]{2}$"
+        [hints]="countriesHints" 
+      />
+    </div>
+
+    <div class="control center">
+      <button 
+        type="submit" 
+        [disabled]="!form.valid || disabled()" 
+        mat-flat-button
+      >
+        @if (loading()) {
+          <mat-spinner diameter="20"></mat-spinner>
+        } @else {
+          Create Briefing
+        }
+      </button>
+    </div>  
+    
+  </div>
+</form>

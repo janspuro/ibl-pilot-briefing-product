@@ -1,0 +1,36 @@
+:host {
+  display: block;
+
+  .briefing-result {
+    width: 100%;
+
+    --metric-blue: var(--color-info-text);
+    --metric-red: var(--color-error-text);
+  
+    tr {  
+      td {
+        padding: 5px;
+  
+        font-size: 14px;
+        vertical-align: top;
+
+        border: 1px solid var(--mat-sys-primary-container);
+        border-top-width: 0px;
+
+        &:not(:last-child) {
+          border-right-width: 0px;
+        }
+
+      }
+
+      &.station {
+        td {  
+          color: var(--mat-sys-on-primary-container);
+          font-weight: 500;
+  
+          background-color: var(--mat-sys-primary-container);
+        }
+      }
+    }
+  }
+}
